@@ -1,4 +1,4 @@
-# "*TEMPLATE*"
+# Middleware Engineering "Document Oriented Middleware using MongoDB"
 
 ## Aufgabenstellung
 Die detaillierte [Aufgabenstellung](TASK.md) beschreibt die notwendigen Schritte zur Realisierung.
