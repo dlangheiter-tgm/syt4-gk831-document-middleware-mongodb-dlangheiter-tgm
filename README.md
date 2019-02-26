@@ -6,3 +6,4 @@ Die detaillierte [Aufgabenstellung](TASK.md) beschreibt die notwendigen Schritte
 ## Implementierung
 
 ## Quellen
+[Nested Documents](https://lankydanblog.com/2017/05/29/embedded-documents-with-spring-data-and-mongodb/)
