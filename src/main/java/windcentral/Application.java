@@ -19,22 +19,19 @@ public class Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         repository.deleteAll();
 
-        WindengineSimulation wes = new WindengineSimulation();
+        for(int windparkId = 0; windparkId < 2; windparkId++) {
+            Windpark windpark = new Windpark(windparkId);
 
-        Windpark wl = new Windpark(1);
+            for (int windengineId = 0; windengineId < 2; windengineId++) {
+                windpark.addWindengine(windengineId);
+                WindengineSimulation windengineSimulation = new WindengineSimulation(windengineId);
+                for (int i = 0; i < 100; i++) {
+                    windpark.addWindengineData(windengineId, windengineSimulation.getData());
+                }
+            }
 
-        for(int i = 0; i < 2; i++) {
-            /*Windengine we = new Windengine();
-            we.addData(wes.getData(i));
-            we.addData(wes.getData(i));
-            we.addData(wes.getData(i));*/
-
-            wl.addWindengine(i);
-            wl.addWindengineData(i, wes.getData(i));
-            wl.addWindengineData(i, wes.getData(i));
+            repository.save(windpark);
         }
-
-        repository.save(wl);
 
         for(Windpark wp : repository.findAll()) {
             System.out.println(wp);
