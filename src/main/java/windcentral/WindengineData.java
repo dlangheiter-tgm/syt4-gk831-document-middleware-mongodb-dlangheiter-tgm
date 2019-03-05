@@ -1,11 +1,14 @@
 package windcentral;
 
+import org.springframework.data.annotation.Id;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class WindengineData {
 
     private int windengineID;
+    @Id
     private String timestamp;
 
     private double windspeed;

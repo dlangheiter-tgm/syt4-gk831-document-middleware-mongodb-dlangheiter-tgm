@@ -12,8 +12,10 @@ public class Windpark {
     @Id
     public String id;
 
+    public String jsonDataUrl;
+
     public int ownId;
-    public Map<Integer, List<WindengineData>> windengines;
+    public Map<Integer, Map<String, WindengineData>> windengines;
 
     public Windpark() {
         this.windengines = new HashMap<>();
@@ -25,19 +27,23 @@ public class Windpark {
     }
 
     public void addWindengine(Integer id) {
-        this.windengines.put(id, new ArrayList<>());
+        this.windengines.put(id, new HashMap<>());
     }
 
-    public void addWindengineData(int windengineId, WindengineData wed) {
-        this.windengines.get(windengineId).add(wed);
+    public void addWindengineData(WindengineData wed) {
+        if(!this.windengines.containsKey(wed.getWindengineID())) {
+            this.addWindengine(wed.getWindengineID());
+        }
+        this.windengines.get(wed.getWindengineID()).put(wed.getTimestamp().replace('.', ':'), wed);
     }
 
     @Override
     public String toString() {
         return "Windpark{" +
                 "id='" + id + '\'' +
+                ", jsonDataUrl='" + jsonDataUrl + '\'' +
                 ", ownId=" + ownId +
-                ", windParkList=" + windengines +
+                ", windengines=" + windengines +
                 '}';
     }
 }

@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
@@ -17,26 +20,33 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        /*
         repository.deleteAll();
 
-        for(int windparkId = 0; windparkId < 2; windparkId++) {
-            Windpark windpark = new Windpark(windparkId);
+        Windpark p = new Windpark();
+        p.jsonDataUrl = "http://localhost:8080/windengine/data/json";
+        repository.save(p);
+        */
 
-            for (int windengineId = 0; windengineId < 2; windengineId++) {
-                windpark.addWindengine(windengineId);
-                WindengineSimulation windengineSimulation = new WindengineSimulation(windengineId);
-                for (int i = 0; i < 100; i++) {
-                    windpark.addWindengineData(windengineId, windengineSimulation.getData());
+        while(true) {
+            List<Windpark> parks = repository.findAll();
+            for (Windpark park : parks) {
+                System.out.println("Request: " + park.jsonDataUrl);
+                try {
+                    RestTemplate restTemplate = new RestTemplate();
+                    WindengineDataRest dataList = restTemplate.getForObject(park.jsonDataUrl, WindengineDataRest.class);
+                    for (WindengineData data : dataList.getWindengine()) {
+                        park.addWindengineData(data);
+                    }
+                    repository.save(park);
+                } catch (Exception e) {
+                    System.out.println("Error occurred while requesting '" + park.jsonDataUrl + "': " + e.getMessage());
+                    //e.printStackTrace();
                 }
             }
-
-            repository.save(windpark);
+            System.out.println("Waiting 5 seconds");
+            Thread.sleep(5000);
         }
-
-        for(Windpark wp : repository.findAll()) {
-            System.out.println(wp);
-        }
-        System.out.println();
 
     }
 
