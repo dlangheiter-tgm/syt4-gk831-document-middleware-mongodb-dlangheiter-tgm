@@ -1,6 +1,7 @@
 package windcentral;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,8 +9,7 @@ import java.util.Date;
 public class WindengineData {
 
     private int windengineID;
-    @Id
-    private String timestamp;
+    private Date timestamp;
 
     private double windspeed;
     private String unitWindspeed;
@@ -34,7 +34,8 @@ public class WindengineData {
      */
     public WindengineData() {
 
-        this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+        //this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+        this.timestamp = new Date();
         this.unitWindspeed = "kmH";
         this.unitTemperature = "C";
         this.unitPower = "kwH";
@@ -55,11 +56,11 @@ public class WindengineData {
         this.windengineID = windengineID;
     }
 
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 

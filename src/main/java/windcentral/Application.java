@@ -20,13 +20,13 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        /*
+
         repository.deleteAll();
 
         Windpark p = new Windpark();
         p.jsonDataUrl = "http://localhost:8080/windengine/data/json";
         repository.save(p);
-        */
+
 
         while(true) {
             List<Windpark> parks = repository.findAll();

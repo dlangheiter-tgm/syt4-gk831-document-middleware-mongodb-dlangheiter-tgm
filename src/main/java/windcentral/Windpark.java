@@ -2,10 +2,8 @@ package windcentral;
 
 import org.springframework.data.annotation.Id;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Windpark {
 
@@ -34,7 +32,10 @@ public class Windpark {
         if(!this.windengines.containsKey(wed.getWindengineID())) {
             this.addWindengine(wed.getWindengineID());
         }
-        this.windengines.get(wed.getWindengineID()).put(wed.getTimestamp().replace('.', ':'), wed);
+        SimpleDateFormat sdf;
+        sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSXXX");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        this.windengines.get(wed.getWindengineID()).put(sdf.format(wed.getTimestamp()), wed);
     }
 
     @Override
