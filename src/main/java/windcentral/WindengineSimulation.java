@@ -21,7 +21,7 @@ public class WindengineSimulation {
         if (noiseCount + 1 > noises.length) {
             noiseCount = 0;
         }
-        double rand = noises[noiseCount].noise(x, 0);
+        double rand = (noises[noiseCount].noise(x, 0) + 1.0) / 2;
         noiseCount++;
 
         double number = (rand * ((inMaximum - inMinimum) + 1)) + inMinimum;
@@ -29,7 +29,6 @@ public class WindengineSimulation {
     }
 
     private int getRandomInt(int inMinimum, int inMaximum) {
-
         return ((int) (this.getRandomDouble(inMinimum, inMaximum)*100))/100;
     }
 
