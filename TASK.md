@@ -40,11 +40,11 @@ Ebenso soll ein einfaches Webinterface für die Zentrale implementiert werden, d
 ## Bewertung
 Gruppengrösse: 1 Person
 ### Grundanforderungen **überwiegend erfüllt**
-- [ ] Installation und Konfiguration einer dokumentenorientierten Middleware mit Hilfe von Spring Data MongoDB
-- [ ] Entwurf und Umsetzung einer entsprechenden JSON Datenstruktur
-- [ ] Speicherung der Daten in einem MongoDB Repository in der Zentrale
+- [x] Installation und Konfiguration einer dokumentenorientierten Middleware mit Hilfe von Spring Data MongoDB
+- [x] Entwurf und Umsetzung einer entsprechenden JSON Datenstruktur
+- [x] Speicherung der Daten in einem MongoDB Repository in der Zentrale
 - [ ] Formulierung einer sinnvollen Fragestellung für einen Anwendungsfall in der Zentrale und deren Abfrage in einer Mongo Shell
-- [ ] Umsetzung von einem Parkrechner
+- [x] Umsetzung von einem Parkrechner
 ### Grundanforderungen **zur Gänze erfüllt**
 - [ ] Konzeption und Implementierung der kontinuierlichen Speicherung der Daten (Cronjob, Scheduler, Trigger, etc.)
 - [ ] Implementieren eines Webinterfaces zur Darstellung der Daten (siehe Fragestellung zu "überwiegend erfüllt")
