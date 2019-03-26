@@ -11,20 +11,21 @@ Mein Zentralrechner fragt all ~5 Sekunden alle Parkrechner ab und speichert sie 
 ## Fragen
 
 #### Vorteile
-* Kein unötiges speichern von null werten
+* Kein unötiges speichern von null Werten
 * Daten müssen nicht immer im selben Format gespeichert werden.
 * Besserer objektorientierter Ansatz
+* Man kann Listen speichern (keine Cross-Reference Tables)
 
 #### Nachteile
 * Keine zwingende gleichbleibende Struktur
+* Daten müssen nicht immer im selben Format gespeichert werden.
 * Mann muss selber darauf achten das die Daten in der richten Form gespeichert werden und abgerufen.
 * Besser um zu "joinen"
 
-
-#### Schwirigkeiten
+#### Schwierigkeiten
 Die Daten so zu speichern das man es eindeutig einem Windpark und einer Windengine zuordnen kann.
 Dabei habe ich in meinem Design einen Fehler gemacht, indem ich die Daten in Sub-Documents speicher.
-Auf diese kann man nicht einfach algemeine Queries schreiben.
+Auf diese kann man nicht einfach algemeine Queries schreiben.g
 
 #### Windgeschwindigkeit auf 0 Setzen
 Kann ich nicht :( 
