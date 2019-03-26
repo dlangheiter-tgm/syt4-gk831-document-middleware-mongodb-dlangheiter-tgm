@@ -16,8 +16,12 @@ public class Windpark {
     public Map<Integer, Map<String, WindengineData>> windengines;
 
     public Windpark() {
-        this.windengines = new HashMap<>();
+        this.resetWindengines();
     };
+
+    public void resetWindengines() {
+        this.windengines = new HashMap<>();
+    }
 
     public Windpark(int ownId) {
         this();

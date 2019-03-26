@@ -46,9 +46,9 @@ Gruppengrösse: 1 Person
 - [ ] Formulierung einer sinnvollen Fragestellung für einen Anwendungsfall in der Zentrale und deren Abfrage in einer Mongo Shell
 - [x] Umsetzung von einem Parkrechner
 ### Grundanforderungen **zur Gänze erfüllt**
-- [ ] Konzeption und Implementierung der kontinuierlichen Speicherung der Daten (Cronjob, Scheduler, Trigger, etc.)
-- [ ] Implementieren eines Webinterfaces zur Darstellung der Daten (siehe Fragestellung zu "überwiegend erfüllt")
-- [ ] Umsetzung von mehreren Parkrechnern
+- [x] Konzeption und Implementierung der kontinuierlichen Speicherung der Daten (Cronjob, Scheduler, Trigger, etc.)
+- [x] Implementieren eines Webinterfaces zur Darstellung der Daten (siehe Fragestellung zu "überwiegend erfüllt")
+- [x] Umsetzung von mehreren Parkrechnern
 
 
 ## Fragestellung für Protokoll

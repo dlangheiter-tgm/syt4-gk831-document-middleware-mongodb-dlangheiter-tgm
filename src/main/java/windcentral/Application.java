@@ -21,11 +21,18 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        List<Windpark> parkSave = repository.findAll();
+        for(Windpark wp : parkSave) {
+            wp.resetWindengines();
+        }
+
         repository.deleteAll();
 
-        Windpark p = new Windpark();
+        repository.saveAll(parkSave);
+
+        /*Windpark p = new Windpark();
         p.jsonDataUrl = "http://localhost:8080/windengine/data/json";
-        repository.save(p);
+        repository.save(p);*/
 
 
         while(true) {
