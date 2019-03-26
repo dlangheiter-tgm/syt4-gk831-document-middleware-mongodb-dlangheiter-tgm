@@ -3,15 +3,13 @@
 ## Aufgabenstellung
 Die detaillierte [Aufgabenstellung](TASK.md) beschreibt die notwendigen Schritte zur Realisierung.
 
-## Implementierung
-
 ### Konzept
 Mein Zentralrechner fragt all ~5 Sekunden alle Parkrechner ab und speichert sie in der DB.
 
 ## Fragen
 
 #### Vorteile
-* Kein unötiges speichern von null Werten
+* Kein unötiges speichern von `null` Werten
 * Daten müssen nicht immer im selben Format gespeichert werden.
 * Besserer objektorientierter Ansatz
 * Man kann Listen speichern (keine Cross-Reference Tables)
